@@ -58,6 +58,7 @@
                fill="none"
                stroke="none"
                pointer-events="all"
+               data-name="SECTOR M"
                class="sector sector-m"
                id="rect34" />
           </g>
@@ -77,6 +78,7 @@
                fill="none"
                stroke="none"
                pointer-events="all"
+               data-name="SECTOR D"
                class="sector sector-d"
                id="rect1" />
           </g>
@@ -348,6 +350,7 @@
                stroke="none"
                pointer-events="all"
                id="rect30"
+               data-name="SECTOR C1"
                class="sector sector-c1" />
           </g>
         </g>
@@ -366,6 +369,7 @@
                fill="none"
                stroke="none"
                pointer-events="all"
+               data-name="SECTOR C2"
                class="sector sector-c2"
                id="rect32" />
           </g>
@@ -384,7 +388,8 @@
                fill="none"
                stroke="none"
                pointer-events="all"
-               class="sector sector-h"
+               class="sector sector-h tooltip-box"
+               data-name="SECTOR H"
                id="rect36" />
           </g>
         </g>

@@ -15,7 +15,7 @@ async function loadSvgInto(el, url) {
     el.innerHTML = await res.text();
   const svg = document.querySelector("svg");
 
-    initSVG(svg);
+    initSvg(svg);
 }
 
 (async function init() {
@@ -32,7 +32,7 @@ async function loadSvgInto(el, url) {
   if (!classroom) return;
   console.log("clicked:", classroom.dataset.index);
 });*/
-function initSVG(svg) {
+/*function initSVG(svg) {
 const tooltip = document.getElementById("tooltip");
 
   console.log("svg -> " + svg);
@@ -68,4 +68,59 @@ const tooltip = document.getElementById("tooltip");
     if (!sector) return;
     hideTooltip();
   });
-}  
+}  */
+
+/*function initSVG() {
+  const rect36 = document.getElementById('rect36');
+  //console.log(rect36)
+document.getElementById('rect36').addEventListener('mousemove', (e) => {
+  let x = e.clientX
+  let y = e.clientY
+
+//console.log(x)
+
+console.log(e.target.className);
+
+
+
+  if (e.target.className === 'sector sector-h tooltip-box') {
+    console.log("1")
+    e.target.children[0].style.top = (y + 15) + 'px'
+    e.target.children[0].style.left = (x + 15) + 'px'
+  }
+
+  if (e.target.parentNode.className === 'sector sector-h tooltip-box') {
+    console.log("2")
+    e.target.parentNode.children[0].style.top = (y + 15) + 'px'
+    e.target.parentNode.children[0].style.left = (x + 15) + 'px'
+  }
+});
+}*/
+
+function initSvg(svg) {
+  const tooltip = document.getElementById("tooltip");
+
+  svg.addEventListener("mouseover", (e) => {
+    const sector = e.target.closest?.(".sector");
+    if (!sector) return;
+
+console.log(tooltip)
+
+    const name = sector.dataset.name || sector.id || "Sector";
+    tooltip.textContent = name;
+
+    // Posición fija junto al sector (derecha + un poco abajo)
+    const r = sector.getBoundingClientRect();
+    tooltip.style.left = `${r.right + 6}px`;
+    tooltip.style.top = `${r.top + 10}px`;
+
+    tooltip.classList.remove("hidden");
+  });
+
+  svg.addEventListener("mouseout", (e) => {
+    const sector = e.target.closest?.(".sector");
+    if (!sector) return;
+
+    tooltip.classList.add("hidden");
+  });
+}
